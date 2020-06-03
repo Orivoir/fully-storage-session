@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Todolist</title>
+        <link rel="stylesheet" href="/public/index.css">
+    </head>
+
+    <body>
+
+        <main>
+
+            <section class="form-side">
+
+                <form
+                    method="POST"
+                    action="/todo"
+                >
+
+                    <div>
+                        <label for="todo">todo</label>
+                        <input
+                            name="todo"
+                            id="todo"
+                            autocomplete="off"
+                            autofocus="true"
+                            placeholder="new todo..."
+                        />
+                    </div>
+
+                    <div>
+                        <button
+                            type="submit"
+                        >
+                            new todo
+                        </button>
+                    </div>
+
+                </form>
+
+            </section>
+
+            <section class="todo-list-side">
+
+                <%
+                if( todos.length > 0 ) {
+                %>
+                    <ul class="todos-list">
+
+                        <%
+                            for( todo of todos ) {
+
+                                %>
+                                <li class="todos-item">
+                                    <div>
+                                        <p>
+                                            <%= todo.text %>
+                                        </p>
+                                    </div>
+                                </li>
+                                <%
+                            }
+                        %>
+
+                    </ul>
+                <%
+                } else {
+
+                    %>
+                    <p class="work-finish">
+                        You have finish your work, go <a href="https://netflix.com/">Netflix</a>
+                    </p>
+                    <%
+                }
+                %>
+
+            </section>
+
+        </main>
+
+        <footer>
+
+            <p>
+                <a href="https://npmjs.com/package/fully-storage">fully-storage</a>
+                example usage of manager session http as middleware with
+                <a href="https://github.com/expressjs/express">Express</a>
+            </p>
+
+        </footer>
+
+        <script src="/public/index.js"></script>
+
+    </body>
+
+</html>
